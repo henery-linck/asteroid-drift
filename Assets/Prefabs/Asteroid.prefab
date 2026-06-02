@@ -202,8 +202,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AsteroidMovement
   minimumAngularSpeed: 10
   maximumAngularSpeed: 90
-  minimumLinearSpeed: 2
-  maximumLinearSpeed: 10
-  minMargin: -10
-  maxMargin: 10
+  minimumLinearSpeed: 1
+  maximumLinearSpeed: 2
+  minMargin: -15
+  maxMargin: 15
   asteroidDuration: 15
+  viewportMargin: 0.1

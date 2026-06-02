@@ -477,7 +477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AsteroidSpawner
   asteroidPrefab: {fileID: 8240241578029741271, guid: a7fa15fda6c940540b4547b78742f95c, type: 3}
   initialSpawnInterval: 2
-  maxAsteroids: 1
+  maxAsteroids: 10
 --- !u!1 &2126561177
 GameObject:
   m_ObjectHideFlags: 0
