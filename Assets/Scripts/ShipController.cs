@@ -75,4 +75,13 @@ public class ShipController : MonoBehaviour
     {
         _rigidBody.MoveRotation(_rigidBody.rotation - _rotateInput * rotationSpeed * Time.fixedDeltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Asteroid"))
+        {
+            // Handle collision with asteroid (e.g., reduce health, play sound, etc.)
+            Debug.Log("Game Over!");
+        }
+    }
 }
