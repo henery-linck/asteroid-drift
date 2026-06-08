@@ -80,8 +80,7 @@ public class ShipController : MonoBehaviour
     {
         if (collision.CompareTag("Asteroid"))
         {
-            // Handle collision with asteroid (e.g., reduce health, play sound, etc.)
-            Debug.Log("Game Over!");
+            GameManager.Instance.GameOver();
         }
     }
 }
