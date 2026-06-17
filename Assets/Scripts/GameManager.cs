@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public bool IsGameOver { get; private set; }
+    public float SurvivalTime { get; private set; }
 
     private PlayerInputActions _inputActions;
 
@@ -18,13 +19,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (!IsGameOver)
+        if (IsGameOver)
             return;
 
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     Restart();
-        // }
+        SurvivalTime += Time.deltaTime;
     }
 
     private void OnEnable()
@@ -43,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         if (!IsGameOver)
             return;
-        
+
         Restart();
     }
 
@@ -61,5 +59,13 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public string GetFormattedSurvivalTime()
+    {
+        int minutes = Mathf.FloorToInt(SurvivalTime / 60f);
+        int seconds = Mathf.FloorToInt(SurvivalTime % 60f);
+
+        return $"{minutes:00}:{seconds:00}";
     }
 }
