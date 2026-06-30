@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2400e8a139f62ce4a84ff7fa7b7460aa
+guid: 95e58d914a8d6484985b4733843fb0d2
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Player
+  - name: Starship
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -139,7 +139,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 16
-    spriteID: a476801c130b77f4bb038ed276cfc9ef
+    spriteID: 9eead6eafd8d7e042a8e5057a96c6820
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,17 +153,17 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 1875862075
+      value0: 924122708
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Player
+    name: Starship
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Player
+    - name: Starship
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -171,7 +171,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 16
-      spriteId: a476801c130b77f4bb038ed276cfc9ef
+      spriteId: 9eead6eafd8d7e042a8e5057a96c6820
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

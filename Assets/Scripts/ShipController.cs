@@ -12,6 +12,8 @@ public class ShipController : MonoBehaviour
     [SerializeField] private float reverseThrust = 4f;
     [SerializeField] private float maxSpeedForward = 16f;
     [SerializeField] private float maxSpeedReverse = 8f;
+    [SerializeField] private SpriteRenderer thrustSpriteRenderer;
+    [SerializeField] private Animator thrustAnimator;
 
     private Rigidbody2D _rigidBody;
     private PlayerInputActions _inputActions;
@@ -64,6 +66,9 @@ public class ShipController : MonoBehaviour
 
     private void ApplyThrust()
     {
+        thrustSpriteRenderer.enabled = _thrustInput > 0;
+        thrustAnimator.SetBool("IsAccelerating", _thrustInput > 0);
+        
         float thrust = _thrustInput > 0 ? forwardThrust : reverseThrust;
         float maxSpeed = _thrustInput > 0 ? maxSpeedForward : maxSpeedReverse;
 
