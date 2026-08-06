@@ -1,19 +1,61 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class AsteroidSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject asteroidPrefab; // Prefab of the asteroid to spawn
+    [Serializable]
+    public struct WeightedAsteroid
+    {
+        public GameObject asteroidPrefab; // Prefab of the asteroid
+        [Range(1, 100)]
+        public int weight; // Weight for spawning this asteroid
+    }
+    
+    [Header("Configuração dos Asteroides")]
+    [SerializeField] private List<WeightedAsteroid> asteroids; // Array of weighted asteroids
     [SerializeField] private float initialSpawnInterval = 2f; // Time interval between spawns
     [SerializeField] private int maxAsteroids = 20;
 
     private float _currentSpawnInterval;
     private float _timer;
+    private int _totalWeight;
 
     private void Start()
     {
         _currentSpawnInterval = initialSpawnInterval;
+
+        // Calculate the total weight of all asteroids
+        calculateTotalWeight();
+    }
+
+    private void calculateTotalWeight()
+    {
+        _totalWeight = 0;
+        foreach (var asteroid in asteroids)
+        {
+            _totalWeight += asteroid.weight;
+        }
+    }
+
+    public GameObject GetRandomAsteroidPrefab()
+    {
+        if (asteroids == null || asteroids.Count == 0) return null;
+
+        int randomValue = Random.Range(0, _totalWeight);
+        int currentSum = 0;
+
+        foreach (var item in asteroids)
+        {
+            currentSum += item.weight;
+            if (randomValue < currentSum)
+            {
+                return item.asteroidPrefab;
+            }
+        }
+
+        return asteroids[0].asteroidPrefab; // Fallback de segurança
     }
 
     // Update is called once per frame
@@ -68,6 +110,6 @@ public class AsteroidSpawner : MonoBehaviour
         }
 
         // Instantiate the asteroid at a random position within the chosen spawn area
-        Instantiate(asteroidPrefab, new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0), Quaternion.identity);
+        Instantiate(GetRandomAsteroidPrefab(), new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0), Quaternion.identity);
     }
 }

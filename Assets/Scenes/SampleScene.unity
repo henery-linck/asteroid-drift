@@ -713,9 +713,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a59eb569e85874cb2db9573d6e8433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AsteroidSpawner
-  asteroidPrefab: {fileID: 8240241578029741271, guid: a7fa15fda6c940540b4547b78742f95c, type: 3}
+  asteroids:
+  - asteroidPrefab: {fileID: 8240241578029741271, guid: a7fa15fda6c940540b4547b78742f95c, type: 3}
+    weight: 50
+  - asteroidPrefab: {fileID: 8240241578029741271, guid: e9ad58ad4a28fc44085f5de2857c718a, type: 3}
+    weight: 15
+  - asteroidPrefab: {fileID: 8240241578029741271, guid: 8285a24a9fe84e2499c3c601ee2b587e, type: 3}
+    weight: 35
   initialSpawnInterval: 2
-  maxAsteroids: 10
+  maxAsteroids: 15
 --- !u!1 &1547859925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,8 +1141,8 @@ Transform:
   m_GameObject: {fileID: 2126561177}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.008602, y: -0.10194, z: 0}
+  m_LocalScale: {x: 0.53154, y: 0.53154, z: 0.53154}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1838764043}
